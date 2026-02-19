@@ -5,6 +5,6 @@
 #
 
 cd $(dirname $0)
-./setup-AlpineLinux.sh
-./clean.sh
-./suite.sh -c
+./scripts/setup-AlpineLinux.sh
+./scripts/clean.sh
+./scripts/suite.sh -c

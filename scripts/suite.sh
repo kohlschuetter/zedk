@@ -8,7 +8,7 @@ echo zedk suite
 echo https://github.com/kohlschuetter/zedk
 echo
 
-cd $(dirname $0)
+cd $(dirname $0)/..
 targetDir=target/suite
 zipOut=$(pwd)/target/zedk2.zip
 rm -rf ${targetDir}
