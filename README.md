@@ -29,9 +29,13 @@ Unzip the `zedk.zip` to a FAT32-formatted USB-stick. Reboot your computer use th
 
 The build system of _EDK II_ (edk2) is hard to figure out and easy to get wrong. _zedk_ changes that.
 
-The build logic is built around simple shell scripts running on Alpine Linux. By default, a container (Podman, Docker, Apple Containers) is launched to encapsulate the build process. Cross-compilation is supported.
+The build logic is built around simple shell scripts running on Alpine Linux. By default, a container (Podman, Docker, Apple Containers) is launched to encapsulate the build process.
 
-Due to some bugs in newer versions of EDK II, to get to a working solution, _zedk_ allows building and combining multiple versions of EDK II from source control. Additional UEFI programs are simply kept in a custom branch and referred to during build.
+Cross-compilation is supported (tested on macOS with Apple Silicon). Currently, the only target platform is `x86_64`.
+
+Due to some bugs in newer versions of EDK II, to get to a working solution, _zedk_ allows building and combining multiple versions of EDK II from source control. Custom UEFI programs are simply kept in a separate branch and referred to during build.
+
+Additionally, `setup_var.efi`, which is used to unlock the hidden Setup entries, is built from source as well.
 
 To build _zedk_ from scratch, run `./build.sh` from this repository. The zip artifact is then placed under `target/zedk.zip`.
 
