@@ -10,7 +10,7 @@ echo
 
 cd $(dirname $0)/..
 targetDir=target/suite
-zipOut=$(pwd)/target/zedk2.zip
+zipOut=$(pwd)/target/zedk.zip
 rm -rf ${targetDir}
 mkdir -p ${targetDir}
 
