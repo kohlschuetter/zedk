@@ -5,9 +5,17 @@
 #
 
 if [[ $(whoami) != "root" ]]; then
-  echo "$0: Please run as root" >&2
+  elev=$(which sudo || which doas)
+  if [[ -n "$elev" ]]; then
+    echo "$0: This needs to be run as root; trying $elev ..."
+    $elev $0 && exit 0
+  fi
+
+  echo "$0: Execution failed; please check for errors and run manually as root" >&2
   exit 1
 fi
+
+set -e
 
 apk add bash alpine-sdk git libuuid ossp-uuid-dev nasm util-linux-misc zip rustup python3
 
