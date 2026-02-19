@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd $(dirname $0)
-srcDir=$(pwd)/setup_var.efi
+srcDir=$(pwd)/dependencies/setup_var.efi
 targetDir=$(pwd)/target/setup_var
 mkdir -p "${targetDir}"
 

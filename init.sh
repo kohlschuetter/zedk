@@ -34,14 +34,14 @@ cd $(dirname $0)
 
 baseDir=$(pwd)
 
-if [[ ! -e "edk2/.git" ]]; then
+if [[ ! -e "dependencies/edk2/.git" ]]; then
   git submodule update --init --recursive
 fi
 
 mkdir -p ${baseDir}/worktrees
 worktreeAdd=1
 if [[ -z "$ref" ]]; then
-  worktreeDirRel=edk2
+  worktreeDirRel=dependencies/edk2
   worktreeAdd=0
 else
   worktreeRef=${ref}
@@ -55,15 +55,13 @@ fi
 worktreeDir="${baseDir}/${worktreeDirRel}"
 
 if [[ $worktreeAdd -eq 1 ]]; then
-  cd edk2
+  cd dependencies/edk2
   echo "Resetting edk2 repo... ref=${refName}"
   if [[ $clean -eq 1 ]]; then
     echo "Cleaning..."
     rm -rf "$worktreeDir"
-    git worktree add -f "${worktreeDir}" $ref
-  else
-    git worktree add "${worktreeDir}" $ref || true
   fi
+  git worktree add -f "${worktreeDir}" $ref || true
 fi
 
 cd "${worktreeDir}"

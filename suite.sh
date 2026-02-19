@@ -41,7 +41,7 @@ mkdir -p ${targetDir}/EFI/BOOT
 cp -av ${targetDir}/Shell.efi ${targetDir}/EFI/BOOT/bootx64.efi
 
 ./build-setup_var.sh
-cp -av setup_var.efi/target/x86_64-unknown-uefi/release/setup_var.efi ${targetDir}/
+cp -av dependencies/setup_var.efi/target/x86_64-unknown-uefi/release/setup_var.efi ${targetDir}/
 
 cd ${targetDir}
 rm -f ${zipOut}

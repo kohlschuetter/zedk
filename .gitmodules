@@ -1,6 +1,6 @@
 [submodule "edk2"]
-	path = edk2
+	path = dependencies/edk2
 	url = git@github.com:kohlschuetter/edk2.git
 [submodule "setup_var.efi"]
-	path = setup_var.efi
+	path = dependencies/setup_var.efi
 	url = git@github.com:kohlschuetter/setup_var.efi.git
