@@ -58,6 +58,10 @@ cp -av ${targetDir}/Shell.efi ${targetDir}/EFI/BOOT/bootx64.efi
 ./scripts/build-setup_var.sh
 cp -av dependencies/setup_var.efi/target/x86_64-unknown-uefi/release/setup_var.efi ${targetDir}/
 
+cp -av NOTICE ${targetDir}/NOTICE.zedk
+cp -av dependencies/edk2/License.txt ${targetDir}/NOTICE.edk2
+cp -av dependencies/setup_var.efi/LICENSE-MIT ${targetDir}/NOTICE.setup_var
+
 cd ${targetDir}
 rm -f ${zipOut}
 zip -r ${zipOut} .
