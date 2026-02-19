@@ -1,4 +1,4 @@
-# zedk — suite of useful UEFI tools
+# zedk: Useful UEFI tools
 
 ## What
 
