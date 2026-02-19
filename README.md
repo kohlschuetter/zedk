@@ -35,7 +35,7 @@ Once the UEFI Shell boots, follow the [instructions](src/suite/readme-zedk.txt) 
 
 The build system of _EDK II_ (edk2) is hard to figure out and easy to get wrong. _zedk_ changes that.
 
-The build logic is built around simple shell scripts running on Alpine Linux. By default, a container (Podman, Docker, Apple Containers) is launched to encapsulate the build process.
+The build logic is built around simple shell scripts running on Alpine Linux. By default, a container (via either [Apple Container](https://github.com/apple/container), [Podman](https://podman.io), or [Docker](https://www.docker.com)) is launched to encapsulate the build process.
 
 Cross-compilation is supported (tested on macOS with Apple Silicon). Currently, the only target platform is `x86_64`.
 
@@ -55,7 +55,7 @@ To build _zedk_ from scratch, run `./build.sh` from this repository. The zip art
 
 ## Who and When
 
-zedk was developed by [Christian Kohlschütter](https://kohlschuetter.github.io/blog/) on February 18-19, 2026.
+zedk was created by [Christian Kohlschütter](https://kohlschuetter.github.io/blog/) on February 18-19, 2026.
 
 ## Dependencies
 
