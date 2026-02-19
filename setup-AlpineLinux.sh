@@ -5,11 +5,11 @@
 #
 
 if [[ $(whoami) != "root" ]]; then
-  echo "Please run as root" >&2
+  echo "$0: Please run as root" >&2
   exit 1
 fi
 
-apk add bash alpine-sdk git libuuid ossp-uuid-dev nasm util-linux-misc
+apk add bash alpine-sdk git libuuid ossp-uuid-dev nasm util-linux-misc zip rustup
 if [[ ! -f "/usr/include/uuid/uuid.h" ]]; then
   echo "Adding link from /usr/include/uuid/uuid.h to /usr/include/uuid.h"
   mkdir -p /usr/include/uuid/
