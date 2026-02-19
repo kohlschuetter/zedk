@@ -27,12 +27,15 @@ set -e
 
 # latest DisplayEngineDxe has a bug with fonts, so let's use an older one
 tagDisplayEngineDxe=edk2-stable202211
-
 ./scripts/init.sh ${initArgs[@]} ${tagDisplayEngineDxe}
 ./scripts/build.sh MdeModulePkg/Universal/DisplayEngineDxe
 
-./scripts/init.sh ${initArgs[@]} master
+# use a custom branch of edk2 by default (which is defined by the submodule commit)
+# ./scripts/init.sh ${initArgs[@]} master
+./scripts/init.sh ${initArgs[@]}
 ./scripts/build.sh
+# Our custom branch has additional programs
+./scripts/build.sh ShellPkg/Application/UnloadUUID
 
 cp -av src/suite/* ${targetDir}
 cp -av target/build/current/* ${targetDir}
