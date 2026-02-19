@@ -5,4 +5,5 @@
 #
 
 cd $(dirname $0)/..
+git submodule --quiet foreach --recursive 'git clean -fXd'
 git clean -fXd
