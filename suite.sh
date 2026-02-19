@@ -28,11 +28,11 @@ set -e
 # latest DisplayEngineDxe has a bug with fonts, so let's use an older one
 tagDisplayEngineDxe=edk2-stable202211
 
-./init.sh ${initArgs[@]} ${tagDisplayEngineDxe}
-./build.sh MdeModulePkg/Universal/DisplayEngineDxe
+./scripts/init.sh ${initArgs[@]} ${tagDisplayEngineDxe}
+./scripts/build.sh MdeModulePkg/Universal/DisplayEngineDxe
 
-./init.sh ${initArgs[@]} master
-./build.sh
+./scripts/init.sh ${initArgs[@]} master
+./scripts/build.sh
 
 cp -av src/suite/* ${targetDir}
 cp -av target/build/current/* ${targetDir}

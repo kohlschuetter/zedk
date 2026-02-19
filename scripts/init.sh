@@ -30,7 +30,7 @@ done
 ref="$1"
 refName=$ref
 refName=${refName:=<current>}
-cd $(dirname $0)
+cd $(dirname $0)/..
 
 baseDir=$(pwd)
 
@@ -90,7 +90,7 @@ if [[ $verbose -eq 0 ]]; then
   rc=$?
   set -e
   if [[ $rc -ne 0 ]]; then
-    echo "Building BaseTools failed; run \"./init.sh -v\" for details" >&2
+    echo "Building BaseTools failed; run \"./scripts/init.sh -v\" for details" >&2
     exit 1
   fi
 else
