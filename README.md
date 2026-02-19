@@ -13,6 +13,8 @@ Currently, zedk has the following applications:
 
 <b>NOTE</b> The additional, otherwise hidden settings may be harmful to your computer, causing instabilities or crashes. Use entirely at your own risk.
 
+![Demo](doc/zedk-boot.gif)
+
 ## Why
 
 In many UEFI/BIOS forums, certain UEFI binaries are referenced and/or shared, without a clear way how to obtain them from source. In contrast, _zedk_ provides a straightforward path from source code to a binary distribution. As a consequence, updating the binaries using newer versions of _EDK II_ becomes trivial, while trust is increased.
