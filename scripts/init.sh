@@ -90,7 +90,7 @@ if [[ $verbose -eq 0 ]]; then
   rc=$?
   set -e
   if [[ $rc -ne 0 ]]; then
-    echo "Building BaseTools failed; run \"./scripts/init.sh $ref\" for details" >&2
+    echo "Building BaseTools failed; run \"./scripts/init.sh -v $ref\" for details" >&2
     exit 1
   fi
 else
