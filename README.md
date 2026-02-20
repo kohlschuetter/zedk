@@ -29,7 +29,7 @@ Once copied to a USB stick, you can boot your computer directly to a UEFI shell,
 
 Binaries are provided on the [releases page](https://github.com/kohlschuetter/zedk/releases). 
 
-Unzip the `zedk.zip` to a FAT32-formatted USB-stick. Reboot your computer use the Boot-Menu (F12) to select your USB drive. Alternatively, change the boot order to prioritize the USB flash drive over all other drives. Make sure _Secure Boot_ is disabled.
+Unzip the `zedk.zip` to a FAT32-formatted USB-stick. Reboot your computer; use the Boot-Menu (F12) to select your USB drive. Alternatively, change the boot order via Setup to prioritize the USB flash drive over all other drives. Make sure _Secure Boot_ is disabled.
 
 Once the UEFI Shell boots, follow the [instructions](src/suite/readme-zedk.txt) on screen.
 
@@ -37,20 +37,20 @@ Once the UEFI Shell boots, follow the [instructions](src/suite/readme-zedk.txt) 
 
 The build system of _EDK II_ (edk2) is hard to figure out and easy to get wrong. _zedk_ changes that.
 
-The build logic is built around simple shell scripts running on Alpine Linux. By default, a container (via either [Apple Container](https://github.com/apple/container), [Podman](https://podman.io), or [Docker](https://www.docker.com)) is launched to encapsulate the build process.
+The build logic is centered around simple shell scripts running on Alpine Linux. By default, a nAlpine Linux 3.23 container (via either [Apple Container](https://github.com/apple/container), [Podman](https://podman.io), or [Docker](https://www.docker.com)) is launched to encapsulate the build process.
 
 Cross-compilation is supported (tested on macOS with Apple Silicon). Currently, the only target platform is `x86_64`.
 
-Due to some bugs in newer versions of EDK II, to get to a working solution, _zedk_ allows building and combining multiple versions of EDK II from source control. Custom UEFI programs are simply kept in a separate branch and referred to during build.
+Due to some bugs in newer versions of EDK II, to get to a working solution, _zedk_ allows building and combining multiple versions from source control. Custom UEFI programs are simply kept in a separate branch and referred to during build.
 
-Additionally, `setup_var.efi` is built from source as well. It is used to set an NVRAM variable (`AmiSetupFormSetVar`), which causes the Setup environment to temporarily reveal the hidden Setup entries. This change may persist on some platforms (Lenovo 7000k?) but is temporary on others (Lenovo Tiny) — which is exactly why we have to launch Setup via UEFI shell/zedk.
+Additionally, `setup_var.efi` is built from source as well. It is used to control an NVRAM variable (`AmiSetupFormSetVar`), which causes the Setup environment to temporarily reveal the hidden Setup entries. This change may persist on some platforms (Lenovo 7000k?) but is temporary on others (Lenovo Tiny) — which is exactly why we have to launch Setup via UEFI shell/zedk.
 
 To build _zedk_ from scratch, run `./build.sh` from this repository. The zip artifact is then placed under `target/zedk.zip`.
 
 ## Where
 
 - zedk should run on most x86_64 (Intel/AMD 64-bit) UEFI systems.
-- Additional hidden BIOS features are automatically unlocked for certain AMI UEFI setups (wherever _AmiSetupFormSetVar_). Tested systems so far:
+- Hidden BIOS features are automatically unlocked for certain AMI UEFI setups (wherever _AmiSetupFormSetVar_). Tested systems so far:
   - Lenovo ThinkStation P330 Tiny
   - Lenovo ThinkCentre M920q/M920x Tiny
   - Lenovo ThinkCentre M625q
