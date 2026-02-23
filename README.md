@@ -41,7 +41,7 @@ The build logic is centered around simple shell scripts running on Alpine Linux.
 
 Cross-compilation is supported (tested on macOS with Apple Silicon). Currently, the only target platform is `x86_64`.
 
-Due to some bugs in newer versions of EDK II, to get to a working solution, _zedk_ allows building and combining multiple versions from source control. Custom UEFI programs are simply kept in a separate branch and referred to during build.
+Due to some bugs in newer versions of EDK II, to get to a working solution, _zedk_ allows building and combining multiple versions from source control.
 
 Additionally, `setup_var.efi` is built from source as well. It is used to control an NVRAM variable (`AmiSetupFormSetVar`), which causes the Setup environment to temporarily reveal the hidden Setup entries. This change may persist on some platforms (Lenovo 7000k?) but is temporary on others (Lenovo Tiny) — which is exactly why we have to launch Setup via UEFI shell/zedk.
 
