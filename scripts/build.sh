@@ -7,9 +7,33 @@
 cd $(dirname $0)/..
 
 baseDir=$(pwd)
+set -e
+
+clean=0
+while [[ 1 ]]; do
+case $1 in
+  -c)
+    clean=1
+    shift
+    ;;
+  -C)
+    clean=0
+    shift
+    ;;
+  --)
+    break
+    ;;
+  -*)
+    echo "Unknown option: $1" >&2
+    exit 1
+    ;;
+  *)
+    break
+esac
+done
+
 sourceDateEpoch=$(git log -1 --format=%ct)
 
-set -e
 cd worktrees/current
 edkDir=$(pwd)
 sourceDateEpochEdk=$(git log -1 --format=%ct)
@@ -82,6 +106,9 @@ for target in ${targets[@]}; do
   [[ -z "$baseName" ]] && baseName=${name}
 
   printf "*** Building $target\n"
+  if [[ $clean -eq 1 ]]; then
+    build -p ${pkgDsc} -m ${modDsc} -a X64 -t GCC5 -b RELEASE clean
+  fi
   build -p ${pkgDsc} -m ${modDsc} -a X64 -t GCC5 -b RELEASE
 
   buildName=${pkg%%Pkg}
