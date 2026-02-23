@@ -32,5 +32,13 @@ Override by specifying path to container app as argument: $0 <path-to-container-
 
 EOT
 
-set -x
-${container} run --volume ${dir}:/zedk -it alpine:3.23 ./zedk/scripts/build-alpine.sh
+dirStart=${dir:1}
+dirStart=${dirStart%%/*}
+echo $dirStart | grep -q -w -E 'bin|dev|etc|lib|proc|run|sbin|sys|tmp|usr|var'
+if [[ $? -eq 0 ]]; then
+  containerDir=/zedk
+  printf "Warning: Using temporary directory path on container: ${containerDir}\n\n" >&2
+else
+  containerDir=$dir
+fi
+${container} run --volume ${dir}:${containerDir} -it alpine:3.23 ${containerDir}/scripts/build-alpine.sh
