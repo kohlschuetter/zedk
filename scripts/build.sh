@@ -7,10 +7,18 @@
 cd $(dirname $0)/..
 
 baseDir=$(pwd)
+sourceDateEpoch=$(git log -1 --format=%ct)
 
 set -e
 cd worktrees/current
 edkDir=$(pwd)
+sourceDateEpochEdk=$(git log -1 --format=%ct)
+
+if [[ $sourceDateEpochEdk -gt $sourceDateEpoch ]]; then
+  sourceDateEpoch=$sourceDateEpochEdk
+fi
+
+export SOURCE_DATE_EPOCH=$sourceDateEpoch
 
 tag=$(git describe --tags --dirty)
 targetDir=${baseDir}/target/build/${tag}
