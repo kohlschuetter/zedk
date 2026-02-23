@@ -46,8 +46,7 @@ tagDisplayEngineDxe=edk2-stable202508
 # ./scripts/init.sh ${initArgs[@]} master
 ./scripts/init.sh ${initArgs[@]}
 ./scripts/build.sh
-# Our custom branch has additional programs
-./scripts/build.sh ShellPkg/Application/UnloadUUID
+./scripts/build.sh Zedk/UnloadUUID
 
 cp -av src/suite/* ${targetDir}
 cp -av target/build/current/* ${targetDir}

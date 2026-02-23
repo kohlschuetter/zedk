@@ -49,6 +49,8 @@ fi
 shift $#
 . ./edksetup.sh
 
+export PACKAGES_PATH=$(pwd):${baseDir}/src/efi
+
 if [[ $(uname -m) != "x86_64" ]]; then
   echo "Non-x64 platform detected; enabling crosscompiler"
   export GCC5_BIN=x86_64-elf-
