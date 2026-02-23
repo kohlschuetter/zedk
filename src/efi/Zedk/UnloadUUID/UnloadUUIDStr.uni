@@ -1,0 +1,13 @@
+/** @file
+  UnloadUUID
+  Copyright 2026 Christian Kohlschuetter
+**/
+
+/=#
+
+#langdef en-US "English"
+
+#string STR_UNLOADUUID_HELP_INFORMATION        #language en-US ""
+".TH UnloadUUID 0 "Unloads components by UUID."\r\n"
+".SH NAME\r\n"
+"UnloadUUID.\r\n"

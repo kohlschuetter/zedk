@@ -1,0 +1,7 @@
+/** @file
+  UnloadUUID
+  Copyright 2026 Christian Kohlschuetter
+**/
+
+#string STR_MODULE_ABSTRACT    #language en-US "UnloadUUID application"
+#string STR_MODULE_DESCRIPTION #language en-US "Unloads certain drivers by UUID"
