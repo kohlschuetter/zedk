@@ -61,6 +61,12 @@ If you're on Alpine Linux, you may also try building directly (launch `./scripts
 
 zedk was created by [Christian Kohlschütter](https://kohlschuetter.github.io/blog/) on February 18-19, 2026.
 
+### Changes in zedk-20260224
+
+- Move UnloadUUID code to this repository
+- Improve build scripts and README
+- Add instructions how to boot directly into Setup
+
 ## Dependencies
 
 zedk depends/builds upon
