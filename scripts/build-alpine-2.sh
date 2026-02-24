@@ -26,7 +26,6 @@ esac
 done
 
 if [[ $clean -eq 1 ]]; then
-	echo CLEAN
   ./scripts/clean.sh
 fi
 ./scripts/suite.sh ${initArgs[@]}
