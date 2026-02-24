@@ -7,9 +7,9 @@ prepare-setup.nsh
     Accesses the BIOS Setup, potentially unlocking hidden options
 
 serial-console.nsh
-serial-console-usb.nsh
-    Enables the serial console on some motherboards or over USB via a
-    FTDI serial adapter (115200 baud 8N1)
+    Enables the serial console on some motherboards
+serial-console-usb.nsh (EXPERIMENTAL, may crash)
+    ... or over USB via a FTDI serial adapter (115200 baud 8N1)
 
 reset
 exit
