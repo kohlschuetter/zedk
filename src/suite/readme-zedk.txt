@@ -14,5 +14,5 @@ reset -c
     Reboot machine
     If screen remains dark, turn off machine, remove power, try again
 
-To automatically start Setup upon boot, edit "startup.nsh" (see instructions there)
+To automatically start Setup, edit "startup.nsh" (see instructions there)
 
