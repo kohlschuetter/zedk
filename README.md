@@ -37,7 +37,7 @@ Once the UEFI Shell boots, follow the [instructions](src/suite/readme-zedk.txt) 
 
 The build system of _EDK II_ (edk2) is hard to figure out and easy to get wrong. _zedk_ changes that.
 
-The build logic is centered around simple shell scripts running on Alpine Linux. By default, a nAlpine Linux 3.23 container (via either [Apple Container](https://github.com/apple/container), [Podman](https://podman.io), or [Docker](https://www.docker.com)) is launched to encapsulate the build process.
+The build logic is centered around simple shell scripts running on Alpine Linux. By default, an Alpine Linux 3.23 container (via either [Apple Container](https://github.com/apple/container), [Podman](https://podman.io), or [Docker](https://www.docker.com)) is launched to encapsulate the build process.
 
 Cross-compilation is supported (tested on macOS with Apple Silicon). Currently, the only target platform is `x86_64`.
 
@@ -46,6 +46,8 @@ Due to some bugs in newer versions of EDK II, to get to a working solution, _zed
 Additionally, `setup_var.efi` is built from source as well. It is used to control an NVRAM variable (`AmiSetupFormSetVar`), which causes the Setup environment to temporarily reveal the hidden Setup entries. This change may persist on some platforms (Lenovo 7000k?) but is temporary on others (Lenovo Tiny) — which is exactly why we have to launch Setup via UEFI shell/zedk.
 
 To build _zedk_ from scratch, run `./build.sh` from this repository. The zip artifact is then placed under `target/zedk.zip`.
+
+If you're on Alpine Linux, you may also try building directly (launch `./scripts/build-alpine.sh`); if you're developing _zedk_, try adding `-C` as a parameter to skip cleaning.
 
 ## Where
 
