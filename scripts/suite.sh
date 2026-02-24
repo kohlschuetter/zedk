@@ -47,6 +47,7 @@ tagDisplayEngineDxe=edk2-stable202508
 ./scripts/init.sh ${initArgs[@]}
 ./scripts/build.sh
 ./scripts/build.sh Zedk/UnloadUUID
+./scripts/build.sh Edk2PlatformDrivers/FtdiUsbSerialDxe
 
 printf "%s\n" $(git describe --tag --dirty) > ${targetDir}/zedk-version.txt
 cp -av src/suite/* ${targetDir}
