@@ -12,5 +12,4 @@ if [[ ! -e "/etc/alpine-release" ]]; then
 fi
 
 ./scripts/setup-AlpineLinux.sh
-./scripts/clean.sh
-./scripts/suite.sh -c
+./scripts/build-alpine-2.sh $@

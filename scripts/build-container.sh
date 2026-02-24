@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Runs the build in a container
 # Copyright 2026 Christian Kohlschuetter
@@ -6,6 +6,18 @@
 
 cd $(dirname $0)/..
 dir=$(pwd)
+
+initArgs=()
+while [[ 1 ]]; do
+case $1 in
+  -*)
+    initArgs+=($1)
+    shift
+    ;;
+  *)
+    break
+esac
+done
 
 container="$1"
 if [[ -z "$container" ]]; then
@@ -41,4 +53,6 @@ if [[ $? -eq 0 ]]; then
 else
   containerDir=$dir
 fi
-${container} run --volume ${dir}:${containerDir} -it alpine:3.23 ${containerDir}/scripts/build-alpine.sh
+
+set -x
+exec ${container} run --volume ${dir}:${containerDir} -it alpine:3.23 ${containerDir}/scripts/build-alpine.sh ${initArgs[@]}
